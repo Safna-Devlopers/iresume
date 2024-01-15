@@ -70,14 +70,14 @@ class configs extends Seeder
         DB::table('configs')->insert(
             [
                 'name' => 'site_footer_en',
-                'value' => '© Copyright All Rights Revrsed By Your Company',
+                'value' => '© Copyright All Rights Revrsed By Safna',
                 'created_at' => time(),
             ]
         );
         DB::table('configs')->insert(
             [
                 'name' => 'site_footer_fa',
-                'value' => '© تمامی حقوق مطلق به شرکت می باشد',
+                'value' => '© تمامی حقوق مطلق به شرکت سافنا می باشد',
                 'created_at' => time(),
             ]
         );
@@ -116,27 +116,7 @@ class configs extends Seeder
                 'created_at' => time(),
             ]
         );
-        DB::table('configs')->insert(
-            [
-                'name' => 'can_use_partner',
-                'value' => '0',
-                'created_at' => time(),
-            ]
-        );
-        DB::table('configs')->insert(
-            [
-                'name' => 'enamad_code',
-                'value' => '0',
-                'created_at' => time(),
-            ]
-        );
-        DB::table('configs')->insert(
-            [
-                'name' => 'samandahi_code',
-                'value' => '0',
-                'created_at' => time(),
-            ]
-        );
+
         DB::table('configs')->insert(
             [
                 'name' => 'pay_idpay_key',
@@ -217,7 +197,7 @@ class configs extends Seeder
         DB::table('configs')->insert(
             [
                 'name' => 'r_file',
-                'value' => '200',
+                'value' => 'resume.pdf',
                 'created_at' => time(),
             ]
         );
@@ -225,6 +205,27 @@ class configs extends Seeder
             [
                 'name' => 'r_avatar',
                 'value' => 'main.jpg',
+                'created_at' => time(),
+            ]
+        );
+        DB::table('configs')->insert(
+            [
+                'name' => 'theme',
+                'value' => 'defualt',
+                'created_at' => time(),
+            ]
+        );
+        DB::table('configs')->insert(
+            [
+                'name' => 'r_name',
+                'value' => 'name',
+                'created_at' => time(),
+            ]
+        );
+        DB::table('configs')->insert(
+            [
+                'name' => 'r_work',
+                'value' => 'your work',
                 'created_at' => time(),
             ]
         );

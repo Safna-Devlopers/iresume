@@ -1,4 +1,3 @@
-@php use App\Models\User; @endphp
 @extends('admin.header')
 
 @section('content')
@@ -39,6 +38,32 @@
                             <!-- .nk-block-head-content -->
                         </div>
                         <!-- .nk-block-between -->
+                    </div>
+                    <div class="nk-block">
+                        <div class="row g-gs">
+                            <div class="col-sm-3">
+                                <div class="card card-bordered">
+                                    <div class="card-inner">
+                                        <div class="card-title-group align-start mb-2">
+                                            <div class="card-title">
+                                                <h6 class="title">تعداد بازدید ها</h6>
+                                            </div>
+                                            <div class="card-tools">
+                                                <em class="card-hint icon ni ni-help-fill"
+                                                    data-bs-toggle="tooltip" data-bs-placement="right"
+                                                    title="تعداد بازید های کاربران از صفحات"></em>
+                                            </div>
+                                        </div>
+                                        <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
+                                            <div class="nk-sale-data">
+                                                <span class="amount">100</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .card -->
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- .row -->

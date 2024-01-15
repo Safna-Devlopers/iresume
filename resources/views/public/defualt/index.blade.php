@@ -79,7 +79,7 @@
                                 <li><strong>کشور</strong><span>{{ $configs['r_country'] }}</span></li>
                                 <li><strong>سرگرمی</strong><span>{{ $configs['r_enter'] }}</span></li>
                             </ul>
-                            <a href="#" class="btn ajax fl-btn color-bg"><span>نمونه کارهای من</span></a>
+                            <a href="{{ route('works') }}" class="btn ajax fl-btn color-bg"><span>نمونه کارهای من</span></a>
                         </div>
                     </div>
                 </div>

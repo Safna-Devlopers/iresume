@@ -24,9 +24,9 @@
                         <!-- gallery-item-->
                         <div class="gallery-item">
                             <div class="grid-item-holder hov_zoom">
-                                <img src="{{ asset('upload/works/') }}/{{ $work->slider->first()->photo_url }}" alt="{{ $work->title }}">
+                                <img src="{{ asset('upload/works/') }}/{{ $work->slider[0]->photo_url }}" alt="{{ $work->title }}">
                                 <div class="grid-det">
-                                    <a href="{{ asset('upload/works/') }}/{{ $work->slider->first()->photo_url }}" class="grid-media-zoom   image-popup"><i class="far fa-search"></i></a>
+                                    <a href="{{ asset('upload/works/') }}/{{ $work->slider[0]->photo_url }}" class="grid-media-zoom   image-popup"><i class="far fa-search"></i></a>
                                     <div class="grid-det-item">
                                         <a href="{{ route('show_work', $work->id) }}" class="ajax grid-det_link">{{ $work->title }}<i class="fal fa-long-arrow-left"></i></a>
                                     </div>

@@ -85,9 +85,72 @@
                             <!-- .nk-menu-item -->
                             <li class="nk-menu-heading">
                                 <h6 class="overline-title text-primary-alt">
-                                    مدیریت
+                                    رزومه
                                 </h6>
                             </li>
+                            <!-- .nk-menu-item -->
+
+                            <!-- .nk-menu-item -->
+                            <li class="nk-menu-item">
+                                <a href="{{ route('a_resume') }}" class="nk-menu-link">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-inbox"></em></span>
+                                    <span class="nk-menu-text">اطلاعات پایه</span>
+                                </a>
+                            </li>
+                            <!-- .nk-menu-item -->
+
+                           <!-- .nk-menu-item -->
+                            <li class="nk-menu-item">
+                                <a href="{{ route('a_services') }}" class="nk-menu-link">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-box"></em></span>
+                                    <span class="nk-menu-text">خدمات ها</span>
+                                </a>
+                            </li>
+                            <!-- .nk-menu-item -->
+
+                            <!-- .nk-menu-item -->
+                            <li class="nk-menu-item">
+                                <a href="{{ route('a_Projects') }}" class="nk-menu-link">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-cards"></em></span>
+                                    <span class="nk-menu-text">پروژه ها</span>
+                                </a>
+                            </li>
+                            <!-- .nk-menu-item -->
+
+                            <!-- .nk-menu-item -->
+                            <li class="nk-menu-item">
+                                <a href="{{ route('a_works') }}" class="nk-menu-link">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-bag"></em></span>
+                                    <span class="nk-menu-text">سابقه کاری</span>
+                                </a>
+                            </li>
+                            <!-- .nk-menu-item -->
+
+                            <!-- .nk-menu-item -->
+                            <li class="nk-menu-item">
+                                <a href="{{ route('a_eductions') }}" class="nk-menu-link">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-pen"></em></span>
+                                    <span class="nk-menu-text">تحصیلات</span>
+                                </a>
+                            </li>
+                            <!-- .nk-menu-item -->
+
+                            <!-- .nk-menu-item -->
+                            <li class="nk-menu-heading">
+                                <h6 class="overline-title text-primary-alt">
+                                   تنظیمات
+                                </h6>
+                            </li>
+                            <!-- .nk-menu-item -->
+
+                            <!-- .nk-menu-item -->
+                            <li class="nk-menu-item">
+                                <a href="{{ route('a_Settings') }}" class="nk-menu-link">
+                                    <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
+                                    <span class="nk-menu-text">تنظیمات</span>
+                                </a>
+                            </li>
+                            <!-- .nk-menu-item -->
 
                         </ul>
                         <!-- .nk-menu -->

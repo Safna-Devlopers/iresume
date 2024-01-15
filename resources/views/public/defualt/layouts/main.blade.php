@@ -38,10 +38,10 @@
                 <h1>{{ $configs['r_name'] }}</h1>
                 <h4>{{ $configs['r_work'] }}</h4>
             </div>
-            <a data-src="{{ asset('assets/images/main.jpg') }}" class="image-popup header-popup color-bg"><i
+            <a data-src="{{ asset('upload/main.jpg') }}" class="image-popup header-popup color-bg"><i
                     class="fal fa-plus"></i></a>
             <div class="header-titile-img">
-                <div class="bg" data-bg="{{ asset('assets/images/main.jpg') }}"></div>
+                <div class="bg" data-bg="{{ asset('upload/main.jpg') }}"></div>
             </div>
             <div class="main-menu-wrap">
                 <!-- nav -->
@@ -55,7 +55,7 @@
                 </nav>
                 <!-- nav end-->
             </div>
-            <a href="{{ asset('resume.pdf') }}" download="{{ asset('resume.pdf') }}" class="header_btn gradient-bg"><i
+            <a href="{{ asset('upload/resume.pdf') }}" download="{{ asset('upload/resume.pdf') }}" class="header_btn gradient-bg"><i
                     class="fas fa-download"></i> دانلود رزومه</a>
         </header>
         <!--header end-->

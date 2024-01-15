@@ -16,26 +16,8 @@ class services extends Controller
         $this->middleware('isadmin');
     }
 
-    public function setlang()
-    {
-        if (Auth::check()) {
-            if (Auth::user()->language == "en") {
-                app()->setLocale('en');
-                return true;
-            } elseif (Auth::user()->language == "fa") {
-                app()->setLocale('fa');
-                return true;
-            } else {
-                app()->setLocale('en');
-                return true;
-            }
-        } else {
-            return true;
-        }
-    }
     public function services()
     {
-        $this->setlang();
         $services = service::latest()->paginate(10);
         $service_cou = service::count();
         $configs = Configs::pluck('value', 'name');
@@ -52,16 +34,15 @@ class services extends Controller
     {
         $data = service::create(
             [
-                'title_fa' => $request->title_fa,
-                'title_en' => $request->title_en,
-                'dec_fa' => $request->dec_fa,
-                'dec_en' => $request->dec_en,
+                'title' => $request->title,
+                'dec' => $request->dec,
+                'icon' => $request->icon,
                 'active' => "1",
             ]
         );
 
         if ($data) {
-            return redirect('admin-panel/services');
+            return redirect('admin-panel/services')->with('success', 'موفقیت آمیز');
         } else {
             return redirect('admin-panel/dashboard');
         }
@@ -69,7 +50,6 @@ class services extends Controller
 
     public function show_services($id)
     {
-        $this->setlang();
         $service = service::find($id);
         $configs = Configs::pluck('value', 'name');
 
@@ -81,18 +61,16 @@ class services extends Controller
         $services = service::find($id);
         $services->update(
             [
-                'title_fa' => $request->title_fa,
-                'title_en' => $request->title_en,
-                'dec_fa' => $request->dec_fa,
-                'dec_en' => $request->dec_en,
+                'title' => $request->title,
+                'dec' => $request->dec,
                 'icon' => $request->icon,
-                'link_full' => $request->link_full,
+                'active' => "1",
             ]
         );
 
 
         if ($services) {
-            return redirect('admin-panel/services');
+            return redirect('admin-panel/services')->with('success', 'موفقیت آمیز');
         } else {
             return redirect('admin-panel/dashboard');
         }
@@ -104,7 +82,7 @@ class services extends Controller
         $services->delete();
 
         if ($services) {
-            return redirect('admin-panel/services');
+            return redirect('admin-panel/services')->with('success', 'موفقیت آمیز');
         } else {
             return redirect('admin-panel/dashboard');
         }
