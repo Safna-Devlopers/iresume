@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\publicController::class, 'index'])->name('index');
+Route::get('/resume', [App\Http\Controllers\publicController::class, 'resume'])->name('resume');
+Route::get('/works', [App\Http\Controllers\publicController::class, 'works'])->name('works');
+Route::get('/works/{id}', [App\Http\Controllers\publicController::class, 'show_work'])->name('show_work');
+Route::get('/contact-us', [App\Http\Controllers\publicController::class, 'contact'])->name('contact');
+
+Auth::routes([
+    'register' => false,
+    'login' => true,
+    'logout' => true
+]);
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
+
+// Admin Panel
+Route::get('admin-panel/', [App\Http\Controllers\admin\dashboard::class, 'dashborad'])->name('Dashborad');
+Route::get('admin-panel/dashborad', [App\Http\Controllers\admin\dashboard::class, 'dashborad'])->name('a_Dashborad');
