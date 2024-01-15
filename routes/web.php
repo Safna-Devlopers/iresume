@@ -22,7 +22,8 @@ Route::get('/contact-us', [App\Http\Controllers\publicController::class, 'contac
 Auth::routes([
     'register' => false,
     'login' => true,
-    'logout' => true
+    'logout' => true,
+    'verify' => false
 ]);
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
