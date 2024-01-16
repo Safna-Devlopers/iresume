@@ -187,7 +187,7 @@
 
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label class="form-label" for="avatar">بنر</label>
+                                                        <label class="form-label" for="avatar">عکس پروفایل</label>
                                                         <div class="form-control-wrap">
                                                             <div class="form-file">
                                                                 <input type="file" class="form-file-input" id="avatar" name="avatar">

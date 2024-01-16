@@ -33,7 +33,12 @@ class projects extends Controller
         $configs = Configs::pluck('value', 'name');
         return view('admin.showproject', compact('configs', 'project','sliders'));
     }
-    public function create_projects(Request $request)
+
+    public function create_projects()
+    {
+        return view('admin.project-create');
+    }
+    public function create_projects_Post(Request $request)
     {
         $validatedData = $request->validate([
             'title' => 'required',
@@ -56,25 +61,32 @@ class projects extends Controller
             ]
         );
 
+        if($request->hasFile('img')){
+            $user_id = Auth::user()->id;
+            $imgname = "ps-" . $project->id . "-" . rand(1000, 50000) . ".jpg";
 
-                return response()->json(
-                    ['success' => 'عملیات با موفقیت انجام شد']
-                );
+            $request->file('img')->storeAs('upload/works/', $imgname);
 
-//        return redirect('admin-panel/projects');
+
+            $data = [
+                    'photo_url' => $imgname,
+                    'user_id' => $user_id,
+                    'project_id' => $project->id,
+                ];
+            $project->slider()->create($data);
+
+        }
+//        return response()->json(['success' => 'عملیات با موفقیت انجام شد']);
+      return redirect('admin-panel/projects');
     }
     public function edit_projects($id, Request $request)
     {
         $project = Project::find($id);
-        $date = $request->finish_date;
-        $time = $request->finish_time;
-        $all_time = $date . " " . $time;
-        $finish_date = \Morilog\Jalali\CalendarUtils::createCarbonFromFormat('Y/m/d H:i', $all_time)->getTimestamp();
         $project->update(
             [
                 'title' => $request->title,
                 'dec' => $request->dec,
-                'finish_date' => $finish_date,
+                'finish_date' => $request->finish_date,
                 'user_id_create' => $request->user_id_create,
                 'customer' => $request->customer,
                 'active' => $request->active,

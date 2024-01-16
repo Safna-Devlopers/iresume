@@ -31,6 +31,11 @@ class dashboard extends Controller
         return view('admin.settings');
     }
 
+    public function social()
+    {
+        return view('admin.social');
+    }
+
     public function update_settings($type, Request $request)
     {
         if ($type == "resume"){
@@ -64,15 +69,36 @@ class dashboard extends Controller
             DB::table('configs')->where('name', 'domin')->update(['value' => $request->domin]);
             DB::table('configs')->where('name', 'site_keywords')->update(['value' => $request->site_keywords]);
             DB::table('configs')->where('name', 'site_desc')->update(['value' => $request->site_desc]);
-            DB::table('configs')->where('name', 'social_telegram')->update(['value' => $request->social_telegram]);
-            DB::table('configs')->where('name', 'social_instagram')->update(['value' => $request->social_instagram]);
-            DB::table('configs')->where('name', 'social_whatsapp')->update(['value' => $request->social_whatsapp]);
             DB::table('configs')->where('name', 'site_email')->update(['value' => $request->site_email]);
             DB::table('configs')->where('name', 'site_phone')->update(['value' => $request->site_phone]);
+            DB::table('configs')->where('name', 'site_phone2')->update(['value' => $request->site_phone2]);
             DB::table('configs')->where('name', 'google_tag_id')->update(['value' => $request->google_tag_id]);
+
+            if ($request->hasFile('logo')) {
+                $file = $request->file('logo');
+                $file_name = "logo.png";
+                Storage::putFileAs('upload/', $file, $file_name);
+            }
+
+            if ($request->hasFile('icon')) {
+                $file = $request->file('icon');
+                $file_name = "icon.png";
+                Storage::putFileAs('upload/', $file, $file_name);
+            }
 
 
             return redirect('admin-panel/settings')->with('success', 'موفقیت آمیز');
+
+        } else if ($type == "social"){
+            DB::table('configs')->where('name', 'social_telegram')->update(['value' => $request->social_telegram]);
+            DB::table('configs')->where('name', 'social_instagram')->update(['value' => $request->social_instagram]);
+            DB::table('configs')->where('name', 'social_whatsapp')->update(['value' => $request->social_whatsapp]);
+            DB::table('configs')->where('name', 'social_linkedin')->update(['value' => $request->social_linkedin]);
+            DB::table('configs')->where('name', 'social_facebook')->update(['value' => $request->social_facebook]);
+            DB::table('configs')->where('name', 'social_x')->update(['value' => $request->social_x]);
+
+
+            return redirect('admin-panel/social')->with('success', 'موفقیت آمیز');
 
         }
     }

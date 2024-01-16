@@ -34,7 +34,7 @@
                                             <li class="nk-block-tools-opt">
                                                 <div class="drodown" data-bs-toggle="tooltip" data-bs-placement="top"
                                                      title="ایجاد">
-                                                    <a data-bs-toggle="modal" data-bs-target="#addProject"
+                                                    <a href="{{ route('a_Create_Projects') }}"
                                                        class="btn btn-icon btn-primary"><em
                                                             class="icon ni ni-plus"></em></a>
                                                 </div>
@@ -287,7 +287,7 @@
                                 function sendcpform() {
                                     $.ajax({
                                         type: "POST",
-                                        url: "{{ route('a_Create_Projects') }}",
+                                        url: "{{ route('a_Create_Projects_Post') }}",
                                         data: {
                                             "_token": "{{ csrf_token() }}",
                                             user_id_create: $('#user_id_create').val(),

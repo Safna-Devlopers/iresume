@@ -19,7 +19,7 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/color.css') }}">
     <!--=============== favicons ===============-->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('upload/icon.png') }}?cache={{ time() }}">
 </head>
 
 <body>
@@ -38,10 +38,9 @@
                 <h1>{{ $configs['r_name'] }}</h1>
                 <h4>{{ $configs['r_work'] }}</h4>
             </div>
-            <a data-src="{{ asset('upload/main.jpg') }}" class="image-popup header-popup color-bg"><i
-                    class="fal fa-plus"></i></a>
+            <a data-src="{{ asset('upload/main.jpg') }}?cache={{ time() }}" class="image-popup header-popup color-bg"><i class="fal fa-plus"></i></a>
             <div class="header-titile-img">
-                <div class="bg" data-bg="{{ asset('upload/main.jpg') }}"></div>
+                <div class="bg" data-bg="{{ asset('upload/main.jpg') }}?cache={{ time() }}"></div>
             </div>
             <div class="main-menu-wrap">
                 <!-- nav -->
@@ -51,12 +50,19 @@
                         <li><a href="{{ route('resume') }}" class="ajax"><i class="fal fa-address-card"></i> رزومه</a></li>
                         <li><a href="{{ route('works') }}" class="ajax"><i class="fal fa-images"></i>نمونه کار ها</a></li>
                         <li><a href="{{ route('contact') }}" class="ajax"><i class="fal fa-envelope"></i> تماس</a></li>
+                        @if(!empty($configs['donate']))
+                            <li><a href="{{ $configs['donate'] }}" target="_blank"><i class="fal fa-credit-card-front"></i>حمایت مالی</a></li>
+                        @endif
+
+                        @if(Auth::check())
+                            <li><a href="{{ route('a_Dashborad') }}" target="_blank"><i class="fal fa-solar-panel"></i>پنل مدیریت</a></li>
+                        @endif
+
                     </ul>
                 </nav>
                 <!-- nav end-->
             </div>
-            <a href="{{ asset('upload/resume.pdf') }}" download="{{ asset('upload/resume.pdf') }}" class="header_btn gradient-bg"><i
-                    class="fas fa-download"></i> دانلود رزومه</a>
+            <a href="{{ asset('upload/resume.pdf') }}?cache={{ time() }}" download="{{ asset('upload/resume.pdf') }}?cache={{ time() }}" class="header_btn gradient-bg"><i class="fas fa-download"></i> دانلود رزومه</a>
         </header>
         <!--header end-->
         <!-- top-opt -->
@@ -99,9 +105,24 @@
         <footer class="main-footer">
             <div class="footer-social">
                 <ul>
-                    <li><a href="https://wa.me/{{ $configs['social_whatsapp'] }}/" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
-                    <li><a href="https://instagram.com/{{ $configs['social_instagram'] }}/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://{{ $configs['social_whatsapp'] }}.t.me/" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                    @if(!empty($configs['social_whatsapp']))
+                        <li><a href="https://wa.me/{{ $configs['social_whatsapp'] }}/" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                    @endif
+                    @if(!empty($configs['social_instagram']))
+                        <li><a href="https://instagram.com/{{ $configs['social_instagram'] }}/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    @endif
+                    @if(!empty($configs['socifa_telegram']))
+                        <li><a href="https://{{ $configs['social_telegram'] }}.t.me/" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                    @endif
+                    @if(!empty($configs['social_linkedin']))
+                        <li><a href="{{ $configs['social_linkedin'] }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                    @endif
+                    @if(!empty($configs['socifa_facebook']))
+                        <li><a href="{{ $configs['social_facebook'] }}" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    @endif
+                    @if(!empty($configs['socifa_x']))
+                        <li><a href="{{ $configs['social_x'] }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    @endif
                 </ul>
             </div>
             <div class="copyright">&#169; {{ $configs['site_name_fa'] }} . تمامی حقوق محفوظ است .</div>

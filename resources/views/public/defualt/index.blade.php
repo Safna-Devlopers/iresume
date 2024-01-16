@@ -22,6 +22,12 @@
                     <div class="row">
                         <div class="col-md-7">
                             <h2>به وب سایت من خوش آمدید</h2>
+                            <div class="video_btn-wrap fl-wrap">
+                                <a href="{{ $configs['video_url'] }}" target="_blank" class="gradient-bg">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                                <span>پخش ویدیو</span>
+                            </div>
                         </div>
                     </div>
                 </div>

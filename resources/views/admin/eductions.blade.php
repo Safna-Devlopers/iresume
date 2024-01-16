@@ -1,24 +1,24 @@
 @extends('admin.header')
 
 @section('content')
-    @if(session('success'))
-        <script>
-            window.addEventListener('load', function() {
-                NioApp.Toast('<h5>به روز رسانی موفقیت آمیز</h5><p>تنظیمات با موفقیت به روز رسانی شد.</p>', 'success', {position: 'top-right'}, 3000);
-            });
-        </script>
-    @endif
     <div class="nk-content">
         <div class="container-fluid">
             <div class="nk-content-inner">
                 <div class="nk-content-body">
-                    <div class="nk-block-head nk-block-head-sm">
+                    <div class="nk-block-head nk-block-head-sm box-animatin">
                         <div class="nk-block-between">
                             <div class="nk-block-head-content">
                                 <h3 class="nk-block-title page-title">لیست سابقه تحصیلی ها</h3>
                                 <div class="nk-block-des text-soft">
                                     <p>شما در مجموع {{ $edu_cou }} سابقه تحصیلی دارید.</p>
                                 </div>
+                                <nav>
+                                    <ul class="breadcrumb breadcrumb-arrow">
+                                        <li class="breadcrumb-item active"><a href="{{ route('a_Dashborad') }}">پنل مدیریت</a></li>
+                                        <li class="breadcrumb-item active">رزومه</li>
+                                        <li class="breadcrumb-item">تحصیلات</li>
+                                    </ul>
+                                </nav>
                             </div>
                             <!-- .nk-block-head-content -->
                             <div class="nk-block-head-content">
@@ -46,7 +46,7 @@
                     </div>
                     <!-- .nk-block-head -->
 
-                    <div class="nk-block">
+                    <div class="nk-block box-animatin">
                         <div class="card card-bordered card-stretch">
                             <div class="card-inner-group">
                                 <div class="card-inner position-relative card-tools-toggle">
@@ -216,4 +216,11 @@
             </div>
         </div>
     </div>
+    @if(session('success'))
+        <script>
+            window.addEventListener('load', function() {
+                NioApp.Toast('<h5>به روز رسانی موفقیت آمیز</h5><p>تنظیمات با موفقیت به روز رسانی شد.</p>', 'success', {position: 'top-right'}, 3000);
+            });
+        </script>
+    @endif
 @endsection

@@ -12,7 +12,7 @@
     <meta name="author" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}"/>
+    <link rel="shortcut icon" href="{{ asset('upload/icon.png') }}"/>
     <!-- Page Title  -->
     <title>ورود | {{ $config['site_name_fa'] }}</title>
     <!-- StyleSheets  -->
@@ -100,7 +100,7 @@
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-lg btn-primary btn-block">ورود</button>
+                                    <a class="btn btn-lg btn-primary btn-block" id="login-button">ورود</a>
                                 </div>
                             </form>
                         </div>
@@ -112,7 +112,9 @@
                             <div class="col-lg-6 order-lg-last">
                                 <ul class="nav nav-sm justify-content-center justify-content-lg-end">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('index') }}">بازگشت به صفحه اصلی</a>
+                                        <a class="nav-link" href="{{ route('index') }}">
+                                            بازگشت به صفحه اصلی
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -132,6 +134,8 @@
     <!-- main @e -->
 </div>
 <!-- app-root @e -->
+
+
 <!-- JavaScript -->
 <script src="{{ asset('admin/js/bundle.js') }}"></script>
 <script src="{{ asset('admin/js/scripts.js') }}"></script>

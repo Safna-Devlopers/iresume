@@ -36,7 +36,12 @@
                             <span class="card-item_num">02.</span>
                             <h4>شماره تماس</h4>
                             <p>ارتباط از طریق شماره تلفن</p>
-                            <a href="call:{{ $configs['site_phone'] }}" dir="ltr" class="card-link">{{ $configs['site_phone'] }}</a>
+                            @if(!empty($configs['site_phone']))
+                                <a href="tell:{{ $configs['site_phone'] }}" dir="ltr" class="card-link">{{ $configs['site_phone'] }}</a>
+                            @endif
+                            @if(!empty($configs['site_phone2']))
+                                <a href="tell:{{ $configs['site_phone2'] }}" dir="ltr" class="card-link">{{ $configs['site_phone2'] }}</a>
+                            @endif
                         </div>
                     </div>
                     <!--card-item end -->

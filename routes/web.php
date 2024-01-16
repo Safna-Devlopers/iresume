@@ -38,7 +38,8 @@ Route::get('admin-panel/resume', [App\Http\Controllers\admin\dashboard::class, '
 Route::any('admin-panel/projects', [App\Http\Controllers\admin\projects::class, 'projects'])->name('a_Projects');
 Route::any('admin-panel/projects/{id}', [App\Http\Controllers\admin\projects::class, 'show_projects'])->name('a_Show_Projects');
 Route::post('admin-panel/edit-projects/{id}', [App\Http\Controllers\admin\projects::class, 'edit_projects'])->name('a_Edit_Projects');
-Route::post('admin-panel/create-projects', [App\Http\Controllers\admin\projects::class, 'create_projects'])->name('a_Create_Projects');
+Route::get('admin-panel/create-projects', [App\Http\Controllers\admin\projects::class, 'create_projects'])->name('a_Create_Projects');
+Route::post('admin-panel/create-projects', [App\Http\Controllers\admin\projects::class, 'create_projects_post'])->name('a_Create_Projects_Post');
 Route::get('admin-panel/d_project/{id}', [App\Http\Controllers\admin\projects::class, 'delate_project'])->name('a_d_project');
 Route::post('admin-panel/add_project_photo/{project_id}', [App\Http\Controllers\admin\projects::class, 'add_project_photo'])->name('add_project_photo');
 Route::post('admin-panel/delete_project_photo/{photo_id}', [App\Http\Controllers\admin\projects::class, 'delete_project_photo'])->name('delete_project_photo');
@@ -62,5 +63,6 @@ Route::post('admin-panel/editeductions/{id}', [App\Http\Controllers\admin\r_educ
 Route::post('admin-panel/create-eductions', [App\Http\Controllers\admin\r_eductions::class, 'create_eductions'])->name('a_create_eductions');
 
 Route::get('admin-panel/settings', [App\Http\Controllers\admin\dashboard::class, 'settings'])->name('a_Settings');
+Route::get('admin-panel/social', [App\Http\Controllers\admin\dashboard::class, 'social'])->name('a_social');
 Route::post('admin-panel/update-settings/{type}', [App\Http\Controllers\admin\dashboard::class, 'update_settings'])->name('a_Update_Settings');
 Route::get('admin-panel/securety', [App\Http\Controllers\admin\dashboard::class, 'securety'])->name('a_Securety');

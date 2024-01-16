@@ -28,8 +28,8 @@ nk-header-app-name {
     height: 32px;
     border-radius: 50%;
     font-size: 20px;
-    color: #6576ff;
-    background: rgba(101, 118, 255, 0.3);
+    color: #8411f8;
+    background: rgb(99, 24, 215);
 }
 
 .nk-header-app-info {

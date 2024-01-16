@@ -13,21 +13,22 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <script src="{{ asset('admin/js/jquery/jquery-3.7.0.min.js') }}"></script>
+    <script src="{{ asset('admin/js/jquery/jquery-3.7.0.min.js') }}?cache={{ time() }}"></script>
 
 
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}"/>
+    <link rel="shortcut icon" href="{{ asset('upload/icon.png') }}?cache={{ time() }}"/>
     <!-- Page Title  -->
     <title>{{ $configs['site_name_fa'] }}</title>
     <!-- StyleSheets  -->
 
-    <link rel="stylesheet" href="{{ asset('admin/css/dashlite.rtl.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('admin/css/persian-datepicker.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('admin/css/persiandate.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('admin/css/editors/summernote.rtl.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('admin/css/dashlite.rtl.css') }}?cache={{ time() }}"/>
+    <link rel="stylesheet" href="{{ asset('admin/css/persian-datepicker.css') }}?cache={{ time() }}"/>
+    <link rel="stylesheet" href="{{ asset('admin/css/persiandate.css') }}?cache={{ time() }}"/>
+    <link rel="stylesheet" href="{{ asset('admin/css/editors/summernote.rtl.css') }}?cache={{ time() }}"/>
 
-    <link id="skin-default" rel="stylesheet" href="{{ asset('admin/css/theme.css') }}"/>
+    <link id="skin-default" rel="stylesheet" href="{{ asset('admin/css/theme.css') }}?cache={{ time() }}"/>
+    @extends('admin.customcss');
 </head>
 
 <body class="has-rtl nk-body bg-lighter npc-general has-sidebar">
@@ -49,10 +50,10 @@
                 </div>
                 <div class="nk-sidebar-brand">
                     <a href="" class="logo-link nk-sidebar-logo">
-                        <img class="logo-light logo-img" src="{{ asset('assets/images/favicon.ico') }}"
-                             srcset="{{ asset('assets/images/favicon.ico') }}" alt="لوگو"/>
-                        <img class="logo-dark logo-img" src="{{ asset('assets/images/favicon.ico') }}"
-                             srcset="{{ asset('assets/images/favicon.ico') }}" alt="لوگوی تاریک"/>
+                        <img class="logo-light logo-img" src="{{ asset('upload/logo.png') }}?cache={{ time() }}"
+                             srcset="{{ asset('upload/logo.png') }}?cache={{ time() }}" alt="لوگو" title="logo"/>
+                        <img class="logo-dark logo-img" src="{{ asset('upload/logo.png') }}?cache={{ time() }}"
+                             srcset="{{ asset('upload/logo.png') }}?cache={{ time() }}" alt="لوگوی تاریک" title="logo dark"/>
                     </a>
                 </div>
                 <div class="nk-header-app-info" style="margin: 0 10px">
@@ -144,11 +145,23 @@
                             <!-- .nk-menu-item -->
 
                             <!-- .nk-menu-item -->
-                            <li class="nk-menu-item">
-                                <a href="{{ route('a_Settings') }}" class="nk-menu-link">
+                            <li class="nk-menu-item has-sub">
+                                <a href="#" class="nk-menu-link nk-menu-toggle">
                                     <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
                                     <span class="nk-menu-text">تنظیمات</span>
                                 </a>
+                                <!-- nk-menu-sub -->
+                                <ul class="nk-menu-sub">
+                                    <li class="nk-menu-item">
+                                        <a href="{{ route('a_Settings') }}" class="nk-menu-link"><span
+                                                class="nk-menu-text">پایه</span></a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="{{ route('a_social') }}" class="nk-menu-link"><span
+                                                class="nk-menu-text">سوشال مدیا</span></a>
+                                    </li>
+                                </ul>
+                                <!-- .nk-menu-sub -->
                             </li>
                             <!-- .nk-menu-item -->
 
@@ -263,7 +276,7 @@
                 <div class="container-fluid">
                     <div class="nk-footer-wrap">
                         <div class="nk-footer-copyright">
-                            {{ $configs['site_footer_fa'] }} {{ jdate()->getYear() }}
+                            &#169; {{ $configs['site_name_fa'] }} . تمامی حقوق محفوظ است . {{ jdate()->getYear() }}
                         </div>
                     </div>
                 </div>

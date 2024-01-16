@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 100)->nullable();
             $table->text('dec', 300)->nullable();
-            $table->text('finish_date',)->index()->nullable();
+            $table->text('finish_date',)->nullable();
             $table->foreignId('user_id_create')->references('id')->on("users")->nullable();
             $table->text('customer')->nullable();
             $table->enum('active', ['0','1'])->default(0);
